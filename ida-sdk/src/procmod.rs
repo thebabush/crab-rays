@@ -1,13 +1,14 @@
 use std::ffi::c_void;
 
-// CF_ instruction feature-flag constants from idp.hpp.
-// Values verified at compile time by ida-sdk-sys/src/shim/constants_check.cpp.
-pub const CF_STOP: u32 = 0x00001; ///< Instruction doesn't pass execution to the next one
-pub const CF_CALL: u32 = 0x00002; ///< CALL instruction (should make a procedure here)
-pub const CF_CHG1: u32 = 0x00004; ///< The instruction modifies the first operand
-pub const CF_USE1: u32 = 0x00100; ///< The instruction uses value of the first operand
-pub const CF_USE2: u32 = 0x00200; ///< The instruction uses value of the second operand
-pub const CF_USE3: u32 = 0x00400; ///< The instruction uses value of the third operand
+// CF_ instruction feature-flag constants, sourced from the autocxx-generated
+// ffi::cf_feat enum so they can never drift from the IDA SDK.
+use ida_sdk_sys::ffi::cf_feat as CF;
+pub const CF_STOP: u32 = CF::cf_stop as u32; ///< Instruction doesn't pass execution to the next one
+pub const CF_CALL: u32 = CF::cf_call as u32; ///< CALL instruction (should make a procedure here)
+pub const CF_CHG1: u32 = CF::cf_chg1 as u32; ///< The instruction modifies the first operand
+pub const CF_USE1: u32 = CF::cf_use1 as u32; ///< The instruction uses value of the first operand
+pub const CF_USE2: u32 = CF::cf_use2 as u32; ///< The instruction uses value of the second operand
+pub const CF_USE3: u32 = CF::cf_use3 as u32; ///< The instruction uses value of the third operand
 
 /// Instruction descriptor table entry - mirrors `instruc_t` from idp.hpp.
 #[repr(C)]

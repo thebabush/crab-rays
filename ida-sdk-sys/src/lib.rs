@@ -23,6 +23,7 @@ mod _inner {
         generate!("asm_t")
         generate!("optype_t")
         generate!("op_dtype_t")
+        generate!("cf_feat")
 
         // ----- insn / op helpers (insn_helpers.hpp) --------------------------
         generate!("sbf_next_qword")

@@ -72,6 +72,16 @@ inline uint64_t op_get_value(const op_t *op)  { return (uint64_t)op->value; }
 inline uint64_t insn_op0_addr(const insn_t *insn) { return (uint64_t)insn->ops[0].addr; }
 inline uint64_t insn_op2_addr(const insn_t *insn) { return (uint64_t)insn->ops[2].addr; }
 
+// Wrap CF_* preprocessor macros as an enum so autocxx can export them.
+enum cf_feat : uint32_t {
+    cf_stop = CF_STOP,
+    cf_call = CF_CALL,
+    cf_chg1 = CF_CHG1,
+    cf_use1 = CF_USE1,
+    cf_use2 = CF_USE2,
+    cf_use3 = CF_USE3,
+};
+
 // Typed flow helpers - embed the cref_t constant so Rust doesn't need it
 inline void sbf_add_flow(const insn_t *insn)
 {
