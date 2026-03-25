@@ -2,8 +2,6 @@
 members = [
     "ida-sdk-sys",
     "ida-sdk",
-    "procmod",
-    "loader",
     "sbf",
 ]
 resolver = "2"

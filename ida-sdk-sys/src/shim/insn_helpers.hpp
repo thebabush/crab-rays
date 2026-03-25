@@ -72,6 +72,39 @@ inline uint64_t op_get_value(const op_t *op)  { return (uint64_t)op->value; }
 inline uint64_t insn_op0_addr(const insn_t *insn) { return (uint64_t)insn->ops[0].addr; }
 inline uint64_t insn_op2_addr(const insn_t *insn) { return (uint64_t)insn->ops[2].addr; }
 
+// Wrap operand kind constants as enums so autocxx can export them.
+enum class optype : uint8_t {
+    o_void = ::o_void,
+    o_reg = ::o_reg,
+    o_displ = ::o_displ,
+    o_imm = ::o_imm,
+    o_near = ::o_near,
+};
+
+constexpr uint8_t op_dtype_byte_v = dt_byte;
+constexpr uint8_t op_dtype_word_v = dt_word;
+constexpr uint8_t op_dtype_dword_v = dt_dword;
+constexpr uint8_t op_dtype_qword_v = dt_qword;
+
+#pragma push_macro("dt_byte")
+#pragma push_macro("dt_word")
+#pragma push_macro("dt_dword")
+#pragma push_macro("dt_qword")
+#undef dt_byte
+#undef dt_word
+#undef dt_dword
+#undef dt_qword
+enum class op_dtype : uint8_t {
+    dt_byte = op_dtype_byte_v,
+    dt_word = op_dtype_word_v,
+    dt_dword = op_dtype_dword_v,
+    dt_qword = op_dtype_qword_v,
+};
+#pragma pop_macro("dt_qword")
+#pragma pop_macro("dt_dword")
+#pragma pop_macro("dt_word")
+#pragma pop_macro("dt_byte")
+
 // Wrap CF_* preprocessor macros as an enum so autocxx can export them.
 enum cf_feat : uint32_t {
     cf_stop = CF_STOP,

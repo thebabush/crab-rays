@@ -554,13 +554,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "32a66949e030da00e8c7d4434b251670a91556f4144941d37452769c25d58a53"
 
 [[package]]
-name = "loader-rs"
-version = "0.1.0"
-dependencies = [
- "ida-sdk-sys",
-]
-
-[[package]]
 name = "log"
 version = "0.4.29"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -679,13 +672,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "procmod-rs"
-version = "0.1.0"
-dependencies = [
- "ida-sdk-sys",
-]
-
-[[package]]
 name = "quote"
 version = "1.0.45"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -760,9 +746,8 @@ version = "0.1.0"
 dependencies = [
  "cc",
  "ida-sdk",
- "loader-rs",
+ "ida-sdk-sys",
  "object",
- "procmod-rs",
 ]
 
 [[package]]

@@ -36,7 +36,7 @@ fn apply_to_ida(d: &DecodedInsn, insn: &mut InsnMut<'_>) {
 }
 
 fn dt(size: DataSize) -> u8 {
-    use ida_sdk_sys::ffi::op_dtype_t as DT;
+    use ida_sdk_sys::ffi::op_dtype as DT;
     match size {
         DataSize::Byte  => DT::dt_byte  as u8,
         DataSize::Word  => DT::dt_word  as u8,

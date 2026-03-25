@@ -21,8 +21,8 @@ mod _inner {
         generate!("outctx_t")
         generate!("instruc_t")
         generate!("asm_t")
-        generate!("optype_t")
-        generate!("op_dtype_t")
+        generate!("optype")
+        generate!("op_dtype")
         generate!("cf_feat")
 
         // ----- insn / op helpers (insn_helpers.hpp) --------------------------

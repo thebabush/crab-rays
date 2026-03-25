@@ -15,13 +15,13 @@ pub enum OpKind {
 
 impl From<u8> for OpKind {
     fn from(v: u8) -> Self {
-        use ida_sdk_sys::ffi::optype_t as OT;
+        use ida_sdk_sys::ffi::optype as OT;
         match v {
-            x if x == OT::o_void  as u8 => Self::Void,
-            x if x == OT::o_reg   as u8 => Self::Reg,
+            x if x == OT::o_void as u8 => Self::Void,
+            x if x == OT::o_reg as u8 => Self::Reg,
             x if x == OT::o_displ as u8 => Self::Displ,
-            x if x == OT::o_imm   as u8 => Self::Imm,
-            x if x == OT::o_near  as u8 => Self::Near,
+            x if x == OT::o_imm as u8 => Self::Imm,
+            x if x == OT::o_near as u8 => Self::Near,
             other => Self::Other(other),
         }
     }
@@ -29,13 +29,13 @@ impl From<u8> for OpKind {
 
 impl From<OpKind> for u8 {
     fn from(k: OpKind) -> u8 {
-        use ida_sdk_sys::ffi::optype_t as OT;
+        use ida_sdk_sys::ffi::optype as OT;
         match k {
-            OpKind::Void     => OT::o_void  as u8,
-            OpKind::Reg      => OT::o_reg   as u8,
-            OpKind::Displ    => OT::o_displ as u8,
-            OpKind::Imm      => OT::o_imm   as u8,
-            OpKind::Near     => OT::o_near  as u8,
+            OpKind::Void => OT::o_void as u8,
+            OpKind::Reg => OT::o_reg as u8,
+            OpKind::Displ => OT::o_displ as u8,
+            OpKind::Imm => OT::o_imm as u8,
+            OpKind::Near => OT::o_near as u8,
             OpKind::Other(v) => v,
         }
     }

@@ -7,9 +7,9 @@ fn main() {
     let include = idasdk.join("include");
     let shim_dir = std::path::PathBuf::from("src/shim");
 
-    // autocxx bindings for all IDA SDK types and helpers used across procmod-rs
-    // and loader-rs.  Pass the SDK include as -isystem so clang suppresses all
-    // warnings from third-party IDA headers we can't modify.
+    // autocxx bindings for the IDA SDK types and helpers shared by the workspace.
+    // Pass the SDK include as -isystem so clang suppresses all warnings from
+    // third-party IDA headers we can't modify.
     let isystem = format!("-isystem{}", include.display());
     let mut b = autocxx_build::Builder::new("src/lib.rs", [&shim_dir])
         .extra_clang_args(&[
