@@ -1,0 +1,15 @@
+[package]
+name = "ida-sdk-sys"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "ida_sdk_sys"
+
+[dependencies]
+autocxx = "0.27"
+cxx = "1"
+
+[build-dependencies]
+autocxx-build = "0.27"
+cc = "1"

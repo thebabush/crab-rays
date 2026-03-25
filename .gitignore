@@ -1,0 +1,10 @@
+/target
+procmod/target
+loader/target
+sbf/target
+ida-sdk-sys/target
+ida-sdk/target
+procmod/data
+loader/data
+sbf/data
+.rrr

@@ -1,0 +1,16 @@
+[package]
+name = "sbf"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+procmod-rs  = { path = "../procmod" }
+loader-rs   = { path = "../loader" }
+ida-sdk     = { path = "../ida-sdk" }
+object     = { version = "0.36", default-features = false, features = ["read_core", "elf"] }
+
+[build-dependencies]
+cc = "1"
